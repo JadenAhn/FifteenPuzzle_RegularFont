@@ -181,10 +181,10 @@ namespace JAhnAssignment3
         private void SwitchTile(Tile btn)
         {
             //Switch value in the board array
-            int temp = Array.IndexOf(board, btn.Text);
+            int temp = Array.IndexOf(board, (int.Parse(btn.Text) - 1).ToString());
             int tempRow = btn.Row;
             int tempCol = btn.Col;
-            board[emptyIndex] = btn.Text;
+            board[emptyIndex] = (int.Parse(btn.Text) - 1).ToString();
             board[temp] = "Empty";
 
             //Get the location of emptyIndex
@@ -229,7 +229,7 @@ namespace JAhnAssignment3
                     t.Top = startY;
                     t.Width = TILE_WIDTH;
                     t.Height = TILE_HEIGHT;
-                    t.Text = ((newSize * i) + j).ToString();
+                    t.Text = ((newSize * i) + j + 1).ToString();
                     t.Font = new Font("Calibri", 36, FontStyle.Bold);
                     t.ForeColor = Color.FromArgb(255, 255, 255);
                     t.Name = "Btn" + ((newSize * i) + j).ToString();
